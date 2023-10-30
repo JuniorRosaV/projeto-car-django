@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    <script>
+        function menuShow(){
+            let menuMobile = document.querySelector('.mobile-menu')
+            if (menuMobile.classList.contains('open')){
+                menuMobile.classList.remove('open');
+            } else {
+                menuMobile.classList.add('open')
+            }
+        }
+    </script>
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600&display=swap');
+        /*fonte importada e colada*/
+        :root{/*root serve para criarmos variaveis de cores*/
+            --color-neutral-0: #0e0c0c; /*determino o nome : coloco a informação de cor */
+            --color-neutral-10: #171717;/*determino o nome : coloco a informação de cor */
+            --color-neutral-30: #a8a29e;/*determino o nome : coloco a informação de cor */
+            --color-neutral-40: #f5f5f5;/*determino o nome : coloco a informação de cor */
+        } 
+
+
+        *{
+            font-family: 'Inter', sans-serif; /*para determinar a fonte no projeto*/
+            margin: 0; /*para zerar os espaçamentos das letras*/
+            padding: 0; /*para zerar os espaçamentos das letras*/
+            box-sizing: border-box; /*faz com que o navegador não calcule a dimensão de um elemento somando bordas e margens com altura e largura*/
+            letter-spacing: 1px; /*espaçamentos das letras*/
+        }
+
+
+        header{
+            background-color: var(--color-neutral-10);
+            box-shadow: 0px 3px 10px var(--color-neutral-30);
+        }
+
+
+        .nav-bar{
+            display: flex;
+            justify-content: space-between;
+            padding: 1.5rem 6rem;
+        }
+
+
+        .logo{
+            display: flex;
+            align-items: center;
+        }
+
+
+        .logo h1{
+            color: var(--color-neutral-40);
+        }
+
+
+        .nav-list{
+            display: flex;
+            align-items: center;
+        } 
+
+        .nav-list ul li a{
+          color: var(--color-neutral-40);
+          text-decoration: none;
+        }
+
+        .nav-list ul li{
+          margin: 0 20px;
+        }
+
+        .bv {
+          margin: 0 100px;
+          color:var(--color-neutral-40)
+        }
+
+
+        .nav-list ul{
+            display: flex;
+            align-items: center;
+            list-style: none;
+        }
+
+
+        .nav-item {
+            margin: 0px 15px;
+        }
+
+        .nav-link{
+            text-decoration: none;
+            font-size: 1.15rem;
+            color: var(--color-neutral-40);
+            font-weight: 400;
+        }
+
+        .login-button button{
+            border: none;
+            background-color: #7f37c9;
+            padding: 10px 15px;
+            border-radius: 5px;
+        }
+
+
+        .login-button button a{
+            text-decoration: none;
+            color: var(--color-neutral-40);
+            font-weight: 500;
+        }
+
+
+        .mobile-menu-icon {
+            display: none;
+        }
+
+        .mobile-menu {
+            display: none;
+        }
+        
+        @media screen and (max-width: 730px){
+            .nav-bar{
+                padding: 1.5rem 4rem;
+            }
+
+            .nav-item{
+                display: none;
+            }
+
+            .login-button{
+                display: none;
+            }
+
+            .mobile-menu-icon{
+                display: block;
+            }
+
+            .mobile-menu-icon button {
+                background-color: transparent;
+                border: none;
+                cursor: pointer;
+                color: var(--color-neutral-40);
+            }
+
+            .mobile-menu ul{
+                display: flex;
+                flex-direction: column;
+                text-align: center;
+                padding-bottom: 1rem;
+            }
+
+            .mobile-menu .nav-item{
+                display: block;
+                padding-top: 1.2rem;
+
+            }
+
+            .mobile-menu .login-button{
+                display: block;
+                padding: 1rem 2rem;
+                flex-direction: column;
+            }
+
+
+            .mobile-menu .login-button button{
+                width: 100%;
+                margin-bottom: 12px;
+            }
+
+
+            .open{
+                display: block;
+            }
+
+        }
+
+
+    /*--------------------------------------------------- header termina aqui ---------------------------------------------------*/
+
+
+        
+
+    /*---------------------------------------------------- main termina aqui -----------------------------------------------------*/
+        footer{  /*estou chamando o footer(rodapé) para mexer nele*/
+            width: 100%; /*estou dizendo que vai ocupar 100% da largura*/
+            color: var(--color-neutral-40);/*determino que a cor dele vai receber a variavel de cor que coloquei no root*/
+        }
+
+
+        .footer_link{ /*chamando o footer link*/
+            text-decoration: none; /*dizendo que nao quero decoração no texto*/
+        }
+
+
+        #footer_content{/*chamando o footer content*/
+            background-color: var(--color-neutral-10); /*determinando a cor dele pela variavel da cor que quis em root*/
+            display: grid;/*controlar em que coluna e que linha um elemento começa e termina*/
+            grid-template-columns: repeat(4,1fr);/* dizendo que o template vai ser de colunas e determinando a quantidade de colunas */
+            padding: 3rem 3.5rem; /*é responsável por definir uma distância interna entre um elemento e sua borda.*/
+        }
+
+
+        #footer_contacts h1{ /* chamando o h1 do footer contacts*/
+            margin-bottom: 0.75rem; /* define a margin area na parte inferior de um elemento*/
+        }
+
+
+        #footer_social_media{
+            display: flex;
+            gap: 2rem;
+            margin-top: 1.5rem;
+        }
+
+
+        #footer_social_media .footer_link{
+            height: 2.5rem;
+            width: 2.5rem;
+            color: var(--color-neutral-40);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.4s;
+        }
+
+
+        #footer_social_media .footer_link i{
+            font-size: 1.25rem;
+        }
+
+
+        #footer_social_media .footer_link:hover{
+            opacity: 0.5;
+        }
+
+        #instagram{
+            background: linear-gradient(#7f37c9,#ff2992,#ff9807);
+
+        }
+
+
+        #facebook{
+            background-color: #4267b3
+        }
+
+
+        #whatsapp{
+            background-color: #25d366;
+        }
+
+
+        .footer-list{
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            list-style: none;
+        }
+
+
+        .footer-list .footer-link{
+            color: var(--color-neutral-30);
+
+        }
+
+
+        .footer-list .footer-link:hover{
+            color: #7f37c9;
+        }
+
+
+        .footer_subscribe{
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+
+        .footer_subscribe p {
+            color: var(--color-neutral-30);
+        }
+
+
+        #input_group{
+            display: flex;
+            align-items:center;
+            background-color: var(--color-neutral-0);
+            border-radius: 4px;
+        }
+
+
+        #input_group input{
+            all: unset;
+            padding: 0.5rem;
+            width: 100%;
+            
+        }
+
+
+        #input_group button{
+            background-color: #7f37c9;
+            border: none;
+            color: var(--color-neutral-40);
+            padding: 0px 1.25rem;
+            font-size: 2rem;
+            height: 100%;
+            border-radius: 0px 4px 4px 0px;
+            cursor: pointer;
+            transition: all 0.4s;
+        }
+
+
+        #input_group button:hover{
+            opacity: 0.5;
+        }
+
+
+        #footer_copyright{
+            display: flex;
+            justify-content: center;
+            background-color: var(--color-neutral-0);
+            font-size: 1.1rem;
+            padding: 1.5;
+            font-weight: 100;
+        }
+
+
+        @media screen and (max-width:768px) {
+            #footer_content{
+                grid-template-columns: repeat(2,1fr);
+                gap: 2rem;
+            }
+        }
+
+
+        @media screen and (max-width:426px) {
+            #footer_content{
+                grid-template-columns: repeat(1,1fr);
+                padding: 3rem 2rem;
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav class="nav-bar">
+            <div class="logo">
+                <h1>Logo</h1>
+            </div>
+
+            <div class="nav-list">
+                <ul>
+                    {% if user.is_authenticated %}
+                        <div class="bv">
+                          <li > Bem vindo, {{user.username}} </li>
+                        </div>
+                        <li><a href="{% url 'cars_list' %}">Carros</a></li>
+                        <li><a href="{% url 'newcar_view' %}">Novo Carro</a></li>
+                    {% endif %}
+                    {% if not user.is_authenticated %}
+                        <li><a href="{% url 'cars_list' %}">Carros</a></li>
+                    {% endif %}
+                </ul>
+            </div>
+
+            <div class="login-button">
+                {% if user.is_authenticated %}
+                    <button class="btn-e">
+                        <a href="{% url 'logout' %}">Sair</a>
+                    </button>
+                {% endif %}
+
+                {% if not user.is_authenticated %}
+                    <button class="btn-e">
+                        <a href="{% url 'login' %}">Entrar</a>
+                    </button>
+                    <button class="btn-r">
+                        <a href="{% url 'register' %}">Registre-se</a>
+                    </button>
+                {% endif %}
+
+            </div>
+
+            <div class="mobile-menu-icon">
+                <button onclick="menuShow(this)" class="icon">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+        </nav>
+
+        <div class="mobile-menu">
+            <div class="nav-list">
+               
+                <ul>
+                    {% if user.is_authenticated %}
+                        <div class="bv">
+                          <li > Bem vindo, {{user.username}} </li>
+                        </div>
+                        <li><a href="{% url 'cars_list' %}">Carros</a></li>
+                        <li><a href="{% url 'newcar_view' %}">Novo Carro</a></li>
+                    {% endif %}
+                    {% if not user.is_authenticated %}
+                        <li><a href="{% url 'cars_list' %}">Carros</a></li>
+                    {% endif %}
+        
+                </ul>
+
+                <div class="login-button">
+                    {% if user.is_authenticated %}
+                      <button class="btn-e">
+                          <a href="{% url 'logout' %}">Sair</a>
+                      </button>
+                    {% endif %}
+
+                    {% if not user.is_authenticated %}
+                        <button class="btn-e">
+                            <a href="{% url 'login' %}">Entrar</a>
+                        </button>
+                        <button class="btn-r">
+                            <a href="#">Registre-se</a>
+                        </button>
+                    {% endif %}
+
+                </div>
+                
+            </div>
+
+        </div>
+    </header>
+
+    <main>
+      {% block content %}
+      {% endblock %}
+    </main>
+
+
+    <footer><!--denominado footer a parte de baixo do site, o rodapé-->
+        <div id="footer_content"><!--divisão que vai conter as informações-->
+            <div id = "footer_contacts"><!-- Divisões que contém os contatos -->
+                <h1>Logo</h1><!--onde está a logo-->
+                <p>It's all about your dreams</p><!-- Frase da empresa -->
+                <div id = "footer_social_media"><!-- Divisão da midia social da empresa-->
+                    <a href="#" class="footer_link" id="instagram"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#" class="footer_link" id="facebook"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="#" class="footer_link" id="whatsapp"><i class="fa-brands fa-whatsapp"></i></a>
+                </div>
+            
+            </div>
+            
+            <ul class="footer-list"> <!-- lista que eu vou determinar assuntos que quero empregar-->
+                <li>
+                    <h3>Blog</h3><!--titulo empregado nesta footer-list-->
+                </li>
+                <li>
+                    <a href="#" class="footer-link">Tech</a><!-- links no rodapé-->
+                </li>
+                <li>
+                    <a href="#" class="footer-link">Adventures</a><!-- links no rodapé-->
+                </li>
+                <li>
+                    <a href="#" class="footer-link">Music</a><!-- links no rodapé-->
+                </li>
+            </ul>
+
+            <ul class="footer-list"><!-- lista que eu vou determinar assuntos que quero empregar -->
+                <li>
+                    <h3>Products</h3><!--titulo empregado nesta footer-list-->
+                </li>
+                <li>
+                    <a href="#" class="footer-link">App</a><!-- links no rodapé-->
+                </li>
+                <li>
+                    <a href="#" class="footer-link">Desktop</a><!-- links no rodapé-->
+                </li>
+                <li>
+                    <a href="#" class="footer-link">Cloud</a><!-- links no rodapé-->
+                </li>
+            </ul>
+
+            <div id = "footer_subscribe"> <!--rodapé de inscição dos emails-->
+                <h3>Subscribe</h3><!--titulo dos rodapes-->
+                <p>Enter your e-mail to get notified about our news solutions</p><!--paragrafo da inscrição -->
+                <div id="input_group"><!--divisão de entrada em grupo-->
+                    <input type="email" id="email"><!--caia de Entrada de informação-->
+                    <button><!--botão-->
+                        <i class="fa-regular fa-envelope"></i>
+                    </button>
+                </div>
+            </div>
+
+        </div>
+        
+        <div id="footer_copyright"><!--Rodapé de direitos o copyright-->
+            &#169
+            2023 all right reserved for Junior Rosa
+        </div>
+
+    </footer>
+</body>
+</html>
